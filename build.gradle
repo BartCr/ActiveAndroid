@@ -1,17 +1,10 @@
 apply plugin: 'java'
-apply from: 'gradle-mvn-push.gradle'
+group = 'com.activeandroid'
+version = '3.2.0-SNAPSHOT'
 
-targetCompatibility = '1.6'
-sourceCompatibility = '1.6'
-
-sourceSets {
-	main {
-		java {
-			srcDir 'src'
-		}
-	}
-}
+targetCompatibility = '1.8'
+sourceCompatibility = '1.8'
 
 dependencies {
-	compile fileTree(dir: 'libs', include: '*.jar')
+	implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
