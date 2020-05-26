@@ -16,27 +16,18 @@ package com.activeandroid;
  * limitations under the License.
  */
 
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import android.content.Context;
-
-import com.activeandroid.serializer.CalendarSerializer;
-import com.activeandroid.serializer.SqlDateSerializer;
-import com.activeandroid.serializer.TypeSerializer;
-import com.activeandroid.serializer.UtilDateSerializer;
-import com.activeandroid.serializer.FileSerializer;
+import com.activeandroid.serializer.*;
 import com.activeandroid.util.Log;
 import com.activeandroid.util.ReflectionUtils;
 import dalvik.system.DexFile;
+import org.threeten.bp.LocalDate;
+import org.threeten.bp.LocalDateTime;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.util.*;
 
 final class ModelInfo {
 	//////////////////////////////////////////////////////////////////////////////////////
@@ -50,6 +41,8 @@ final class ModelInfo {
 			put(java.sql.Date.class, new SqlDateSerializer());
 			put(java.util.Date.class, new UtilDateSerializer());
 			put(java.io.File.class, new FileSerializer());
+			put(LocalDate.class, new LocalDateSerializer());
+			put(LocalDateTime.class, new LocalDateTimeSerializer());
 		}
 	};
 
