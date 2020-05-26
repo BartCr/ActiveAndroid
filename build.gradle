@@ -1,10 +1,28 @@
-apply plugin: 'java'
+apply plugin: 'com.android.library'
 group = 'com.activeandroid'
 version = '3.2.0-SNAPSHOT'
 
-targetCompatibility = '1.8'
-sourceCompatibility = '1.8'
+android {
+	compileSdkVersion 29
+	buildToolsVersion "29.0.2"
+
+	defaultConfig {
+		minSdkVersion 24
+		targetSdkVersion 29
+		versionCode 1
+		versionName "3.2.0-SNAPSHOT"
+
+		testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+	}
+
+	buildTypes {
+		release {
+			minifyEnabled false
+		}
+	}
+}
 
 dependencies {
 	implementation fileTree(dir: 'libs', include: ['*.jar'])
+	implementation 'org.threeten:threetenbp:1.4.1'
 }
